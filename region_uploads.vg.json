@@ -1,0 +1,30 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Number of uploads since ",
+    "width": 1000,
+    "height": 800,
+    "projection": {"type": "equirectangular"},
+    "data": {
+        "url": "ne_110mtopo.json",
+        "format": {"type": "topojson","feature": "ne_110m_populated_places_simple"}
+    },
+    "transform": [
+        {
+            "lookup": "properties.iso_a2",
+            "from": {
+                "data": {
+                    "url": "title.akas.tsv"
+                },
+                "key": "region",
+                "fields": ["titleId"]
+            }
+        }
+    ],
+    "mark": {"type": "geoshape"},
+    "encoding": {
+        "color": {
+            "field": "region",
+            "type": "quantitative"
+        }
+    }      
+}
