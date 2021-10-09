@@ -1,0 +1,73 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 400,
+    "title": "COVID-19 cases per Country (10 October, 2020)",
+    "data": {
+        "url": "https://raw.githubusercontent.com/isha018/3179-repository/6d038c366a1a1839bf98b6715794dda926eddf53/Studio-%20Week%209/covid_19_10oct.csv"
+    },
+    "transform": [
+        {"filter": "datum.Active > 0"},
+        {"filter": "datum.Deaths > 0"}
+    ],
+    "mark": "circle",
+    "encoding": {
+        "x":{
+            "field": "Confirmed",
+            "type": "quantitative",
+            "title": "Confirmed Cases",
+            "axis": {
+                "tickCount": 7
+            },
+            "scale": {
+                "type": "log",
+                "domain": [1,10000000]
+            }
+        },
+        "y":{
+            "field": "Deaths",
+            "type": "quantitative",
+            "axis": {
+                "tickCount": 7
+            },
+            "scale": {
+                "type": "log",
+                "domain": [1,10000000]
+            }
+        },
+        "color":{
+            "field": "Continent",
+            "type": "nominal",
+            "scale": {
+                "domain": [
+                    "North America",
+                    "South America",
+                    "Europe",
+                    "Africa",
+                    "Asia",
+                    "Oceania"],
+                "range": [
+                    "#e41a1c",
+                    "#984ea3",
+                    "#ff7f00",
+                    "#a6cee3",
+                    "#377eb8",
+                    "#a65628"
+                ]
+            }
+        },
+        "opacity": {
+            "value": 0.6
+        },
+        "size":{
+            "field": "Population",
+            "type": "quantitative",
+            "scale": {
+                "type": "threshold",
+                "domain": [1000000, 10000000, 50000000, 100000000, 500000000],
+                "range": [10, 50, 150, 200, 300, 400]
+            },
+            "legend": {"format": ".1s"}
+        }
+        }
+    }
