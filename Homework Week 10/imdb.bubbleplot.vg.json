@@ -1,0 +1,69 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 400,
+    "title": "Releases on IMDb over the years",
+    "data":{
+        "url":"https://raw.githubusercontent.com/isha018/3179-repository/main/Homework%20Week%2010/date.type.csv"
+    },
+    "encoding": {
+        "x": {
+            "field": "startYear",
+            "type": "temporal",
+            "title": null
+        },
+        "y": {
+            "aggregate": "sum",
+            "field": "Freq",
+            "stack": "center",
+            "axis": null
+        }
+    },
+    "layer":[
+        {
+        "selection":{
+            "title_highlight": {
+                "type": "multi",
+                "fields": ["titleType"],
+                "bind": "legend"
+            }
+        },
+        "mark": "area",
+        "encoding": {
+            "color": {
+                "field": "titleType",
+                "type": "nominal"
+            },
+            "opacity": {
+                "condition": {"selection": "title_highlight", "value":1},
+                "value": 0.09
+            },
+            "tooltip": [
+                {"field": "startYear", "type": "temporal","format":"%Y","title":"Releasing Year"},
+                {"field": "titleType", "type": "nominal","title":"Type"},
+                {"field": "Freq", "type": "quantitative", "title": "Number of Releases"} 
+            ]
+        }
+    },
+    {
+        "mark": "point",
+        "encoding": {
+            "color":{
+                "value":"black"
+            },
+            "opacity":{
+                "condition": {
+                    "test": "datum['startYear'] == 2005",
+                    "value":1
+                },
+                "value":0
+                }
+            },
+            "tooltip": [
+                {"field": "startYear", "type": "temporal","format":"%Y","title":"Releasing Year"},
+                {"field": "titleType", "type": "nominal","title":"Type"},
+                {"field": "Freq", "type": "quantitative", "title": "Number of Releases"} 
+            ]
+        }
+    ]
+}   
