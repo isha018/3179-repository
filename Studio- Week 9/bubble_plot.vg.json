@@ -6,12 +6,57 @@
     "data": {
         "url": "https://raw.githubusercontent.com/isha018/3179-repository/6d038c366a1a1839bf98b6715794dda926eddf53/Studio-%20Week%209/covid_19_10oct.csv"
     },
+    "params": [
+        {"name": "Population_above",
+        "value": 0,
+        "bind": {
+            "input": "range",
+            "min": 0,
+            "max": 100000000,
+            "step": 1000000,
+            "name": "Minimum Population"
+        }
+    },
+        {"name": "Continent_selection",
+        "bind": {
+            "input": "select",
+            "options": [
+                null, 
+                "North America",
+                "South America",
+                "Europe",
+                "Africa",
+                "Asia",
+                "Oceania"
+            ],
+            "labels": [
+                "Show All",
+                "North America",
+                "South America",
+                "Europe",
+                "Africa",
+                "Asia",
+                "Oceania"
+            ],
+            "name": "Continent Selection"   
+        }
+    }
+    ],
     "transform": [
+        {"filter": "datum.Population > Population_above"},
         {"filter": "datum.Active > 0"},
         {"filter": "datum.Deaths > 0"},
         {"calculate": "datum.Confirmed/datum.Population * 10000",
-        "as": "Cases per 10,000 Population"}
+        "as": "Cases per 10,000 Population"},
+        {"filter": "Continent_selection == null || Continent_selection == datum.Continent"}
     ],
+    "selection": {
+        "Continent_highlight": {
+            "type": "multi",
+            "fields": ["Continent"],
+            "bind": "legend"
+        }
+    },
     "mark": "circle",
     "encoding": {
         "x":{
@@ -59,7 +104,8 @@
             }
         },
         "opacity": {
-            "value": 0.6
+            "condition": {"selection": "Continent_highlight", "value":0.6},
+            "value": 0.2
         },
         "size":{
             "field": "Population",
