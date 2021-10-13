@@ -4,7 +4,7 @@
     "height":400,
     "title":"Number of uploads over years",
     "data":{
-        "url": "numofrelease.csv"
+        "url": "https://raw.githubusercontent.com/isha018/3179-repository/main/numofrelease.csv"
     },
     "transform": [
         {"filter": "datum.Freq>0"}
