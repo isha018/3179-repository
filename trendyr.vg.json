@@ -1,0 +1,31 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width":500,
+    "height":400,
+    "title":"Number of uploads over years",
+    "data":{
+        "url": "numofrelease.csv"
+    },
+    "transform": [
+        {"filter": "datum.Freq>0"}
+    ],
+    "mark": "line",
+    "encoding": {
+        "x":{
+            "field": "total",
+            "type": "temporal",
+            "title": "Year"
+        },
+        "y":{
+            "field": "Freq",
+            "type": "quantitative",
+            "scale":{"type": "log","domain": [1,150000]},
+            "axis":{ "tickCount":6},
+            "title":null
+        },
+        "tooltip": [
+            {"field": "total","title":"Year", "type": "temporal","format":"%Y"},
+            {"field": "Freq", "type": "quantitative","format":",", "title":"Number of releases"}
+        ]
+    }
+}
