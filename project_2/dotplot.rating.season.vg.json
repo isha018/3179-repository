@@ -6,7 +6,7 @@
         "text":"Rating VS Season"
     },
     "data":{
-        "url": "season.ratings.csv"
+        "url": "https://raw.githubusercontent.com/isha018/3179-repository/main/project_2/season.ratings.csv"
     },
     "transform": [
         {"filter": "datum.seasonNumber < 6"},
