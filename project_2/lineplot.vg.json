@@ -3,7 +3,7 @@
     "width": 500,
     "height":400,
     "data": {
-        "url": "typevsyr.csv"
+        "url": "https://raw.githubusercontent.com/isha018/3179-repository/main/project_2/typevsyr.csv"
     },
     "transform": [
         {"filter": "datum.Freq > 0"}, 
