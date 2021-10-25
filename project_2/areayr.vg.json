@@ -6,7 +6,7 @@
     "layer":[
         {
             "data":{
-            "url": "https://raw.githubusercontent.com/isha018/3179-repository/main/project_2/numofrelease.csv"
+            "url": "https://github.com/isha018/3179-repository/blob/main/project_2/numofrelease.csv"
             },
             "transform": [
                 {"filter": "datum.Freq>0"}
