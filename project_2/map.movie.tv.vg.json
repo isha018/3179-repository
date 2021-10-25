@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width":1000,
     "height":600,
-    "title": "Movies and Television Episodes 1920-1950 ",
+    "title": "",
     "projection": {"type":"equirectangular"},
     "params": [
         {
