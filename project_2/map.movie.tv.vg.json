@@ -74,17 +74,21 @@
                 "color":{
                     "field":"titleType",
                     "type":"nominal",
-                    "scale": {
-                        "domain": [
-                            "movie", "tvEpisode"
-                        ]
-                    },
+                    
                     "legend": {
                         "title":"Entertainment Type",
                         "labelExpr": "{'movie': 'Movie', 'tvEpisode': 'TV Episode'}[datum.label]"
-                        
-                    }
-                     
+                    },
+                    "scale": {
+                        "domain": [
+                            "movie",
+                            "tvEpisode"
+                            ],
+                        "range": [
+                            "#1b9e77",
+                            "#d95f02"
+                            ] 
+                        }
                 },
                 "tooltip":[
                     {"field":"Country", "type":"nominal"},
