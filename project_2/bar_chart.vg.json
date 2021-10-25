@@ -6,7 +6,7 @@
         "text":"Top 15 Movies"
     },
     "data":{
-        "url": "top75movies.csv"
+        "url": "https://raw.githubusercontent.com/isha018/3179-repository/main/project_2/top75movies.csv"
     },
     "encoding":{
         "y":{
