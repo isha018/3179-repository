@@ -1,0 +1,71 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width":500,
+    "height":300,
+    "title": "Movies During the early years ",
+    "projection": {"type":"equirectangular"},
+    "params": [
+        {
+            "name": "Till_Year",
+            "value": 1896,
+            "bind" :{
+                "input":"range",
+                "min": 1896,
+                "max": 1919,
+                "step": 1,
+                "name": "Year: "
+            }
+        }
+    ],
+    "layer": [
+        {
+            "data":{
+                "url":"ne_110m_admin_0_countries.json",
+                "format":{
+                    "type": "topojson",
+                    "feature": "ne_110m_admin_0_countries"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "lightgrey",
+                "stroke": "ghostwhite"
+            },
+            "encoding": {
+                "tooltip": [
+                    {"field":"properties.NAME", "type": "nominal", "title": "Country"}
+                ]
+            }
+        },
+        {
+            "data":{
+                "url": "map.movie.csv"
+            },
+            
+            "transform": [
+                {"filter": "Till_Year >= datum.startYear"}
+            ],
+            "mark": {
+                "type":"circle",
+                "color": "darkred"
+            },
+            "encoding": {
+                "longitude": {"field":"Longitude", "type": "quantitative"},
+                "latitude": {"field":"Latitude", "type": "quantitative"},
+                "size":{
+                    "field": "Freq",
+                    "type": "quantitative",
+                    "scale": {"domain":[1,1150]}
+
+                },
+                "tooltip":[
+                    {"field":"Country", "type":"nominal"},
+                    {"field": "Freq", "type": "quantitative","title":"Number of Releases"}
+                    
+                ]
+            }
+        }
+
+    ]
+
+}

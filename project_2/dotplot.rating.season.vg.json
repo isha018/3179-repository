@@ -1,0 +1,60 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width":400,
+    "height":300,
+    "title":{
+        "text":"Rating VS Season"
+    },
+    "data":{
+        "url": "season.ratings.csv"
+    },
+    "transform": [
+        {"filter": "datum.seasonNumber < 6"},
+        {"filter": "datum.episodeNumber < 100"}
+    ],
+    "encoding": {
+        "y": {
+            "field": "episodeNumber",
+            "type": "quantitative",
+            "title":"Episode Number",
+            "scale":{"type": "pow"}
+        },
+        "x": {
+            "field": "averageRating",
+            "type": "quantitative",
+            "title": "Rating",
+            "scale":{"domain": [4,10]}
+        },
+        
+        "tooltip":[
+            {"field":"episodeNumber","type":"quantitative", "title":"Episode Number"},
+            {"field":"averageRating","type":"quantitative","title":"Average Rating"},
+            {"field":"numVotes","type":"quantitative","title":"Number of Votes"}
+        ]
+    },
+    "layer": [ 
+        {
+        "selection":{
+            "title_highlight": {
+                "type": "multi",
+                "fields": ["seasonNumber"],
+                "bind": "legend",
+                "resolve": "global",
+                "empty": "all"
+            }
+        },
+        "mark":"circle",
+        "encoding": {
+            "color":{
+                "field":"seasonNumber",
+                "type": "nominal"
+            },
+            "opacity": {
+                "condition": {"selection": "title_highlight", "value": 1},
+                "value" :0.1
+            }
+        }
+
+    }
+    ]
+}   

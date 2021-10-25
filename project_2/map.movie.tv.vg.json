@@ -1,0 +1,101 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width":500,
+    "height":300,
+    "title": "Movies and Television Episodes 1920-1950 ",
+    "projection": {"type":"equirectangular"},
+    "params": [
+        {
+            "name": "Till_Year",
+            "value": 1920,
+            "bind" :{
+                "input":"range",
+                "min": 1920,
+                "max": 1950,
+                "step": 1,
+                "name": "Year: "
+            }
+        },
+        {
+            "name": "type_selection",
+            "bind": {
+                "input": "select",
+                "options": [
+                    null,
+                    "movie",
+                    "tvEpisode"
+                ],
+                "labels": [
+                    "Show All",
+                    "Movies",
+                    "TV Episodes"
+                ],
+                "name": "Type Selection: "
+            }
+            
+        }
+    ],
+    "layer": [
+        {
+            "data":{
+                "url":"ne_110m_admin_0_countries.json",
+                "format":{
+                    "type": "topojson",
+                    "feature": "ne_110m_admin_0_countries"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "lightgrey",
+                "stroke": "ghostwhite"
+            }
+        },
+        {
+            "data":{
+                "url": "map.movie.tv.csv"
+            },
+            "transform": [
+                {"filter": "Till_Year >= datum.startYear"},
+                {"filter": "type_selection == null || datum.titleType == type_selection"}
+            ],
+            "mark": {
+                "type":"circle"
+            },
+            "encoding": {
+                "longitude": {"field":"Longitude", "type": "quantitative"},
+                "latitude": {"field":"Latitude", "type": "quantitative"},
+                "size":{
+                    "field": "Freq",
+                    "type": "quantitative",
+                    "scale": {"domain":[1,1150]},
+                    "legend": {"title":"Number of Releases"}
+
+                },
+                "color":{
+                    "field":"titleType",
+                    "type":"nominal",
+                    "scale": {
+                        "domain": [
+                            "movie", "tvEpisode"
+                        ]
+                    },
+                    "legend": {
+                        "title":"Entertainment Type",
+                        "labelExpr": "{'movie': 'Movie', 'tvEpisode': 'TV Episode'}[datum.label]"
+                        
+                    }
+                     
+                },
+                "tooltip":[
+                    {"field":"Country", "type":"nominal"},
+                    {"field": "titleType", "type": "nominal", "title":"Entertainment Type"},
+                    {"field": "Freq", "type": "quantitative", "title":"Number of Releases"}
+                    
+                    
+                ]
+            }
+        }
+
+    ]
+
+}

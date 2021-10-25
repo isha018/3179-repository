@@ -1,0 +1,30 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width":400,
+    "height":300,
+    "title":{
+        "text":"Rating VS runtime"
+    },
+    "data":{
+        "url": "ratingruntime.csv"
+    },
+    "mark":"trail",
+    "encoding": {
+        "x": {
+            "field": "runtimeMinutes",
+            "type": "quantitative",
+            "title":"Run Time (mins)",
+            "scale":{"type": "pow"}
+        },
+        "y": {
+            "field": "averageRating",
+            "type": "quantitative",
+            "title": "Rating"
+        },
+        "tooltip":[
+            {"field":"runtimeMinutes","type":"quantitative", "title":"Run Time (in Minutes)"},
+            {"field":"averageRating","type":"quantitative","title":"Average Rating"},
+            {"field":"numVotes","type":"quantitative","title":"Number of Votes"}
+        ]
+    }
+}
