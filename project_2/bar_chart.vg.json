@@ -1,0 +1,45 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width":400,
+    "height":300,
+    "title":{
+        "text":"Top 15 Movies"
+    },
+    "data":{
+        "url": "top75movies.csv"
+    },
+    "encoding":{
+        "y":{
+            "axis": null,
+            "field": "primaryTitle",
+            "type": "nominal"
+        }
+    },
+    "layer":[ 
+        {
+        "mark":{"type":"bar","color":"#ddd"},
+        "encoding": {
+            "x": {
+                "field": "averageRating",
+                "type": "quantitative",
+                "title":"Average Rating"
+            },
+            "tooltip": [
+                {"field": "startYear", "type": "temporal", "format":"%Y", "title":"Year"},
+                {"field": "numVotes", "type": "quantitative", "format": ",","title":"Number of Votes"},
+                {"field": "averageRating", "type": "quantitative", "format": ",","title":"Average Rating"}
+            ]
+        }
+    },
+    {
+        "mark":{"align":"left", "x":5, "type":"text"},
+        "encoding": {
+            "text": {
+                "field":"primaryTitle",
+                "type": "nominal"
+            }
+        }
+    }
+]
+    
+}
