@@ -1,0 +1,104 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width":1000,
+    "height":600,
+    "title": "Emergency of Gaming Industry 1920-1950 ",
+    "params": [
+        {
+            "name": "Till_Year",
+            "value": 1950,
+            "bind" :{
+                "input":"range",
+                "min": 1950,
+                "max": 2021,
+                "step": 1,
+                "name": "Year: "
+            }
+        },
+        {
+            "name": "type_selection",
+            "bind": {
+                "input": "select",
+                "options": [
+                    null,
+                    "movie",
+                    "tvEpisode",
+                    "videoGame"
+                ],
+                "labels": [
+                    "Show All",
+                    "Movies",
+                    "TV Episodes",
+                    "Gaming Videos"
+                ],
+                "name": "Type Selection: "
+            }  
+        }
+        
+    ],
+    "projection": {
+        "type":"equirectangular"
+    },
+    "layer": [
+        {
+            "data":{
+                "url":"ne_110m_admin_0_countries.json",
+                "format":{
+                    "type": "topojson",
+                    "feature": "ne_110m_admin_0_countries"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "lightgrey",
+                "stroke": "ghostwhite"
+            }
+        },
+        {
+            "data":{
+                "url": "map.movie.tv.gaming.csv"
+            },
+            "transform": [
+                {"filter": "Till_Year >= datum.startYear"},
+                {"filter": "type_selection == null || datum.titleType == type_selection"}
+            ],
+            "mark": {
+                "type":"circle"
+            },
+            "encoding": {
+                "longitude": {"field":"Longitude", "type": "quantitative"},
+                "latitude": {"field":"Latitude", "type": "quantitative"},
+                "size":{
+                    "field": "Freq",
+                    "type": "quantitative",
+                    "scale": {"type": "log"},
+                    "legend": {"title":"Number of Releases"}
+
+                },
+                "color":{
+                    "field":"titleType",
+                    "type":"nominal",
+                    "scale": {
+                        "domain": [
+                            "movie", "tvEpisode", "videoGame"
+                        ]
+                    },
+                    "legend":{
+                        "title": "Type",
+                        "labelExpr": "{'movie': 'Movie', 'tvEpisode': 'TV Episodes', 'videoGame': 'Video Gaming'}[datum.label]"
+                    }
+                     
+                },
+                "tooltip":[
+                    {"field":"Country", "type":"nominal"},
+                    {"field": "titleType", "type": "nominal", "title":"Entertainment Type"},
+                    {"field": "Freq", "type": "quantitative", "title":"Number of Releases"}
+                    
+                    
+                ]
+            }
+        }
+
+    ]
+
+}
