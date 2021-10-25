@@ -47,7 +47,7 @@
             ],
             "mark": {
                 "type":"circle",
-                "color": "darkred"
+                "color": "#1b9e77"
             },
             "encoding": {
                 "longitude": {"field":"Longitude", "type": "quantitative"},
