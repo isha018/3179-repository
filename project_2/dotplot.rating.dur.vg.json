@@ -6,7 +6,7 @@
         "text":"Rating VS runtime"
     },
     "data":{
-        "url": "ratingruntime.csv"
+        "url": "https://raw.githubusercontent.com/isha018/3179-repository/main/project_2/ratingruntime.csv"
     },
     "mark":"trail",
     "encoding": {
