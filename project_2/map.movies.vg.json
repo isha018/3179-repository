@@ -55,7 +55,8 @@
                 "size":{
                     "field": "Freq",
                     "type": "quantitative",
-                    "scale": {"domain":[1,1150]}
+                    "scale": {"domain":[1,1150]},
+                    "legend": {"title":"Number of Releases"}
 
                 },
                 "tooltip":[
