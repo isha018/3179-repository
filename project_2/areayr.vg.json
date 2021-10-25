@@ -6,7 +6,7 @@
     "layer":[
         {
             "data":{
-            "url": "numofrelease.csv"
+            "url": "https://raw.githubusercontent.com/isha018/3179-repository/main/project_2/numofrelease.csv"
             },
             "transform": [
                 {"filter": "datum.Freq>0"}
@@ -36,7 +36,7 @@
         },
         {
             "data":{
-                "url": "releaseover_time.csv"
+                "url": "https://raw.githubusercontent.com/isha018/3179-repository/main/project_2/releaseover_time.csv"
             },
             "transform": [
                 {"filter": "datum.Freq>0"}
