@@ -1,0 +1,66 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height":400,
+    "data": {
+        "url": "typevsyr.csv"
+    },
+    "transform": [
+        {"filter": "datum.Freq > 0"}, 
+        {"filter": "datum.titleType == 'tvEpisode' || datum.titleType == 'tvMovie' ||datum.titleType == 'tvSeries' ||datum.titleType == 'tvMiniSeries'"},
+        {"calculate": "datum.titleType", "as": "Types of Videos"}
+    ],
+    "encoding": {
+        "x":{
+            "field": "startYear",
+            "type": "temporal",
+            "axis": {"tickCount": 10,
+                    "title": "Year"}
+        },
+        "y": {
+            "field": "Freq",
+            "type":"quantitative",
+            "axis": {"tickCount": 4,
+                    "title": "Frequency of Release"},
+            "scale":{"type": "log", "domain": [1, 3500]}
+        },
+        "tooltip": [
+            {"field": "startYear", "type": "temporal","format":"%Y","title":"Releasing Year"},
+            {"field": "titleType", "type": "nominal","title":"Type"},
+            {"field": "Freq", "type": "quantitative", "title": "Number of Releases", "format":","} 
+            ]
+    },
+    "layer": [ 
+        {
+        "selection":{
+            "title_highlight": {
+                "type": "multi",
+                "fields": ["Types of Videos"],
+                "bind": "legend",
+                "resolve": "global",
+                "empty": "all"
+            }
+        },
+        "mark": "line",
+        "encoding": {
+            "color":{
+                "field": "Types of Videos",
+                "type": "nominal",
+                "legend": {"labelExpr": "{'tvEpisode': 'TV Episode', 'tvMiniSeries': 'TV Mini Series', 'tvMovie': 'TV Movies', 'tvSeries': 'TV Series'}[datum.label]"},
+                "scale": {
+                    "domain": [
+                        "tvEpisode", "tvMiniSeries", "tvMovie", "tvSeries"
+                    ],
+                    "range": ["#7fc97f","#d95f02","#386cb0","#f0027f"]
+                }
+            },
+            "opacity": {
+                "condition": {"selection": "title_highlight", "value": 1},
+                "value" :0.1
+            }
+        }
+    }
+    ],
+    "config": {"axisY": {"minExtent": 30}}
+
+}

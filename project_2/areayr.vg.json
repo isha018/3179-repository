@@ -1,0 +1,73 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width":500,
+    "height":400,
+    "title":"Number of uploads over years",
+    "layer":[
+        {
+            "data":{
+            "url": "numofrelease.csv"
+            },
+            "transform": [
+                {"filter": "datum.Freq>0"}
+            ],
+            "mark": {
+                "color":"grey",
+                "type": "area"
+            },
+            "encoding": {
+                "x":{
+                    "field":"total",
+                    "type": "temporal",
+                    "title": "Year"
+                },
+                "y":{
+                    "field": "Freq",
+                    "type": "quantitative",
+                    "scale":{"type": "log","domain": [1,150000]},
+                    "axis":{ "tickCount":6},
+                    "title":null
+                },
+                "tooltip": [
+                    {"field": "total","title":"Year", "type": "temporal","format":"%Y"},
+                    {"field": "Freq", "type": "quantitative","format":",", "title":"Number of releases"}
+                ]
+            }
+        },
+        {
+            "data":{
+                "url": "releaseover_time.csv"
+            },
+            "transform": [
+                {"filter": "datum.Freq>0"}
+            ],
+            "mark":"line",
+            "encoding": {
+                "x":{
+                    "field":"startYear",
+                    "type": "temporal"
+                },
+                "y":{
+                    "field": "Freq",
+                    "type": "quantitative",
+                    "scale":{"type": "log","domain": [1,150000]},
+                    "axis":{ "tickCount":6},
+                    "title":null
+                },
+                "color":{
+                    "field":"titleType",
+                    "type": "nominal",
+                    "legend":{
+                        "labelExpr": "{'movie': 'Movies', 'tvEpisode': 'TV Episode', 'videoGame': 'Gaming Videos'}[datum.label]",
+                        "title":"Type of Entertainment"
+                    }
+                },
+                "tooltip": [
+                    {"field": "startYear","title":"Year", "type": "temporal","format":"%Y"},
+                    {"field": "Freq", "type": "quantitative","format":",", "title":"Number of releases"},
+                    {"field": "titleType","type":"nominal","title":"Type of Entertainment"}
+                ]
+            }
+        }
+    ]
+}
