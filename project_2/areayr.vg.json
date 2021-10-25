@@ -24,7 +24,7 @@
                 "y":{
                     "field": "Freq",
                     "type": "quantitative",
-                    "scale":{"type": "log","domain": [1,150000]},
+                    "scale":{"type": "log","domain": [1,1500000]},
                     "axis":{ "tickCount":6},
                     "title":null
                 },
@@ -50,7 +50,7 @@
                 "y":{
                     "field": "Freq",
                     "type": "quantitative",
-                    "scale":{"type": "log","domain": [1,150000]},
+                    "scale":{"type": "log","domain": [1,1500000]},
                     "axis":{ "tickCount":6},
                     "title":null
                 },
