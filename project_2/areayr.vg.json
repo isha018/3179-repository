@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width":500,
     "height":400,
-    "title":"Number of uploads over years",
+    "title":"Number of Uploads Over Years on IMDb",
     "data":{
         "url": "https://raw.githubusercontent.com/isha018/3179-repository/main/project_2/releaseover_time.csv"
         },
@@ -13,7 +13,8 @@
     "encoding": {
         "x":{
             "field":"startYear",
-            "type": "temporal"
+            "type": "temporal",
+            "title": "Years"
             },
         "y":{
             "field": "Freq",
