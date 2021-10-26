@@ -47,7 +47,8 @@
         "encoding": {
             "color":{
                 "field":"seasonNumber",
-                "type": "nominal"
+                "type": "nominal",
+                "title": "Season Number"
             },
             "opacity": {
                 "condition": {"selection": "title_highlight", "value": 1},
