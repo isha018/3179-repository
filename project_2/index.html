@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+<title>Movies</title>
+<meta name="description" content="Our first page">
+<meta name="keywords" content="html tutorial template">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+
+  <!-- Import styling font  -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <link rel="stylesheet" href="index.css">
+
+</head>
+<body>
+  
+    <!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  
+    <main class="mdl-layout__content">
+      <div class="page-content">
+        <!--Row 1-->
+        <div class="mdl-grid">
+          <h1 id="heading1" style="font-family: 'Times New Roman', Times, serif;"> Evolution of the Entertainment Industry  </h1> 
+            <p style="text-align: center;padding-left: 120px; padding-right: 120px;">This page looks at how several industries have aided the entertainment industry's growth over the last century. The debut releases are noticeably skewed towards the modern era, implying that the present generation is more interested in fresh titles and less interested in the old age entertainment sector. Many industries and titles have emerged over the years, but for this visualisation, the focus is on highlighting and analysing three important sectors: <b><span style="color: #1b9e77;">cinema</span></b>, <b><span style="color: #d95f02;">televison</span></b>, and the current growing <b><span style="color: #7570b3;">gaming</span></b> industry.</p>
+            
+            <!--Row 1 : Col 1-->
+                <div id="row1col1"  class="mdl-cell mdl-cell--7-col" >
+                  <div id="vis1">
+                  </div>
+                </div>
+                <div id="row1col2"  class="mdl-cell mdl-cell--5-col">
+                  
+                  <h2 style="font-size: large;font-family: 'Times New Roman', Times, serif;text-align:center ;"> What the mass media offers is not popular art, but entertainment which is intended to be consumed like food, forgotten and replaced by a new dish. <b>-W. H. Auden</b></h2>
+                  <img src="https://raw.githubusercontent.com/isha018/3179-repository/main/project_2/wh_auden.jpeg"  style="width: 500px;">
+                </div>
+        </div>
+        <hr>
+        <!--Row 2-->
+        <div class="mdl-grid">
+          <h1 id="heading2" style="font-family: 'Times New Roman', Times, serif; color: #1b9e77;"> Rise of the Cinematic Industry... </h1>
+          <p style="text-align: center;padding-left: 120px; padding-right: 120px;">In the early twentieth century, cinema theatres were more popular as entertainment facilities and social gathering places. During the first decade of the twentieth century, a number of prominent films were released around the world. Several feature films were also made during this time period.</p>
+        </div>
+          <!--Row 3 Graph : Movies during early years -->
+        <div class="mdl-grid">
+          <div class = "mdl-cell mdl-cell--12-col" >
+          <div id = "vis2" style="  padding-left: 150px;">
+          </div>
+          </div>
+        </div>
+        <!--Content for the graph : Movies during early years-->
+        <div class="mdl-grid">
+          <p style="text-align: center;padding-left: 120px; padding-right: 120px;"> <u><b>Promising Talent from all Over the World:</b></u> The majority of films released during this time period were from more economically prosperous countries such as the United States, Japan, and Europe. After a while, filmmaking gained a wider acceptance on a global scale.</p>
+        </div>
+
+        <div class="mdl-grid">
+          <div class = "mdl-cell mdl-cell--6-col" id = "vis3" style="padding-left: 125px;">
+          </div>
+          <div class = "mdl-cell mdl-cell--6-col" id = "vis4" style="padding-left: 75px;">
+          </div>
+        </div>
+
+        <div class="mdl-grid">
+          <div class = "mdl-cell mdl-cell--6-col">
+            <p>
+            </p>
+          </div>
+          <div class = "mdl-cell mdl-cell--6-col">
+            <p style="text-align: center;padding-right: 100px;padding-left:50px ;">
+              <u><b>Ratings and the length of a movie:</b></u> The length of a film appears to have a negative link with its rating. Short films piqued people's interest, longer movies found it challenging to hold its audience's attention.
+            </p>
+          </div>
+        </div>
+
+        <hr>
+
+
+        <!---Content for the Television Industry -->
+
+        <div class="mdl-grid">
+          <h1 id="heading2" style="font-family: 'Times New Roman', Times, serif; color: #d95f02;"> Golden Era for Televison... </h1>
+          <p style="text-align: center;padding-left: 130px; padding-right: 120px;">
+            The introduction of television as a new technology in the entertainment sector significantly altered the dynamics. It enabled individuals all around the world to view media from the comfort of their own homes. While both produced unique content, it allowed for a separation of the two medias and sparked a lot of competition in the business, resulting in a number of content for viewers to watch.
+          </p>
+        </div>
+
+        <div class="mdl-grid">
+          <div class = "mdl-cell mdl-cell--6-col" id = "vis8" style="padding-left: 100px;">
+          </div>
+          <div class = "mdl-cell mdl-cell--6-col" id = "vis6" style="padding-left: 75px;">
+          </div>
+        </div>
+
+        <div class="mdl-grid">
+          <div class = "mdl-cell mdl-cell--6-col">
+            <p style="text-align: center;padding-right: 50px;padding-left: 100px;">
+              <b><u>Types of entertainment produced on Television:</u></b> TV industries came up with many type of titles such as short movies, series, episode and daily soaps. For this visualisation we will only compare the TV episodes given on IMDb to the other industries . 
+            </p>
+          </div>
+          <div class = "mdl-cell mdl-cell--6-col">
+            <p style="text-align: center;padding-right: 100px;padding-left:50px ;">
+              <u><b>Ratings over multiple seasons:</b></u> While people in the early 1900s were less interested in viewing long movies, the television business attempted to address this by breaking down the script into numerous small episodes in the hopes of solving the attention span problem. This didn't appear to have much of an effect on their ranking; people seemed to favour shows with fewer episodes.
+            </p>
+          </div>
+        </div>
+
+        <div class="mdl-grid">
+          <div class = "mdl-cell mdl-cell--12-col" >
+          <div id = "vis5" style=" padding-left: 150px;">
+          </div>
+          </div>
+        </div>
+
+        <div class="mdl-grid">
+          <p style="text-align: center;padding-left: 120px; padding-right: 120px;"><b><u>The global popularity of films and their battle with television:</u></b> While the film industry grew in popularity around the world, it didn't take long for the television industry to overtake it in the mid-nineteenth century mainly in Europe, India and Japan.</p>
+        </div>
+        <!-- for extra space on in the end-->
+        <div class="mdl-grid">
+        </div>
+          
+          
+      
+      <hr>
+
+    <!--Row 4-->
+    <div class="mdl-grid">
+      <h1 id="heading4" style="font-family: 'Times New Roman', Times, serif; color: #7570b3;"> Emergence of Gaming Industry...</h1>
+      <p style="text-align: center;  padding-left: 120px; padding-right: 120px;">
+        The progress of the gaming industry accelerated in the early 1950s where technological advance in computers, gaming consoles and mobile games began to emerge as a strong force of recreation for the majority of the population.
+      </p>
+    </div>
+
+    <div class="mdl-grid">
+      <div class = "mdl-cell mdl-cell--12-col" >
+      <div id = "vis7" style=" padding-left: 150px;">
+      </div>
+      </div>
+    </div>
+    
+    <div class="mdl-grid">
+      <p style="text-align: center; padding-left: 120px; padding-right: 120px;">Although, we can cannot compare it to the wide spread market of the television and the movie industry that had planted strong foundations in the world of entertainment much earlier to the gaming industry in the early 1900s.</p>
+    </div>
+
+
+    <!-- for extra space on in the end-->
+    <div class="mdl-grid">
+      
+      
+    </div>
+
+
+    <div class="mdl-grid">      
+      <p style="text-align: center;  padding-left: 120px;">
+        This visualisation is created by <a href="https://github.com/isha018" target="_blank">Isha Mishra</a>. The datasource is <a href="https://datasets.imdbws.com/" target="_blank">the IMBd datasource</href>.  
+      </p>
+    </div>
+
+
+      </div>
+    </main>
+  </div>
+
+  <script type="text/javascript">
+    var specVis1 = "https://raw.githubusercontent.com/isha018/3179-repository/main/project_2/areayr.vg.json";
+    var specVis2 = "https://raw.githubusercontent.com/isha018/3179-repository/main/project_2/map.movies.vg.json";
+    var specVis3 = "https://raw.githubusercontent.com/isha018/3179-repository/main/project_2/bar_chart.vg.json"; 
+    var specVis4 = "https://raw.githubusercontent.com/isha018/3179-repository/main/project_2/dotplot.rating.dur.vg.json";
+    var specVis5 = "https://raw.githubusercontent.com/isha018/3179-repository/main/project_2/map.movie.tv.vg.json";
+    var specVis6 = "https://raw.githubusercontent.com/isha018/3179-repository/main/project_2/dotplot.rating.season.vg.json";
+    var specVis7 = "https://raw.githubusercontent.com/isha018/3179-repository/main/project_2/map.gaming.vg.json";
+    var specVis8 = "https://raw.githubusercontent.com/isha018/3179-repository/main/project_2/lineplot.vg.json";
+        
+  
+    vegaEmbed('#vis1', specVis1, {"actions": false}).catch(console.error);
+    vegaEmbed('#vis2', specVis2, {"actions": false}).catch(console.error);
+    vegaEmbed('#vis3', specVis3, {"actions": false}).catch(console.error);    
+    vegaEmbed('#vis4', specVis4, {"actions": false}).catch(console.error);
+    vegaEmbed('#vis5', specVis5, {"actions": false}).catch(console.error);
+    vegaEmbed('#vis6', specVis6, {"actions": false}).catch(console.error); 
+    vegaEmbed('#vis7', specVis7, {"actions": false}).catch(console.error);
+    vegaEmbed('#vis8', specVis8, {"actions": false}).catch(console.error);  
+  </script>
+</body>
+</html>
