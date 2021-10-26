@@ -20,9 +20,9 @@
         "y": {
             "field": "Freq",
             "type":"quantitative",
-            "axis": {"tickCount": 4,
+            "axis": {"tickCount": 3,
                     "title": "Frequency of Release"},
-            "scale":{"type": "log", "domain": [1, 3500]}
+            "scale":{"type": "log", "domain": [1, 5000]}
         },
         "tooltip": [
             {"field": "startYear", "type": "temporal","format":"%Y","title":"Releasing Year"},
@@ -64,3 +64,4 @@
     "config": {"axisY": {"minExtent": 30}}
 
 }
+
